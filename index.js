@@ -3,22 +3,56 @@ addListeners();
 let heartBeatingAnimation;
 
 function addListeners() {
+    let fadeInAnimation;
     document.getElementById('fadeInPlay')
         .addEventListener('click', function () {
             const block = document.getElementById('fadeInBlock');
-            animaster().fadeIn(block, 5000);
+            fadeInAnimation = animaster().fadeIn(block, 5000);
+        });
+    document.getElementById('fadeInReset')
+        .addEventListener('click', function () {
+            if (fadeInAnimation) {
+                fadeInAnimation.reset();
+            }
         });
 
+    let fadeOutAnimation;
+    document.getElementById('fadeOutPlay')
+        .addEventListener('click', function () {
+            const block = document.getElementById('fadeOutBlock');
+            fadeOutAnimation = animaster().fadeOut(block, 5000);
+        });
+    document.getElementById('fadeOutReset')
+        .addEventListener('click', function () {
+            if (fadeOutAnimation) {
+                fadeOutAnimation.reset();
+            }
+        });
+
+    let moveAnimation;
     document.getElementById('movePlay')
         .addEventListener('click', function () {
             const block = document.getElementById('moveBlock');
-            animaster().move(block, 1000, {x: 100, y: 10});
+            moveAnimation = animaster().move(block, 1000, {x: 100, y: 10});
+        });
+    document.getElementById('moveReset')
+        .addEventListener('click', function () {
+            if (moveAnimation) {
+                moveAnimation.reset();
+            }
         });
 
+    let scaleAnimation;
     document.getElementById('scalePlay')
         .addEventListener('click', function () {
             const block = document.getElementById('scaleBlock');
-            animaster().scale(block, 1000, 1.25);
+            scaleAnimation = animaster().scale(block, 1000, 1.25);
+        });
+    document.getElementById('scaleReset')
+        .addEventListener('click', function () {
+            if (scaleAnimation) {
+                scaleAnimation.reset();
+            }
         });
 
     let moveAndHideAnimation;
